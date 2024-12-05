@@ -65,7 +65,7 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/portal" className="hover:text-sky-300 transition-colors">
+                                <Link href="https://portal.c-around.ch" className="hover:text-sky-300 transition-colors">
                                     Client Portal
                                 </Link>
                             </li>
