@@ -21,7 +21,7 @@ export function HeroSection() {
       <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
         <div className="max-w-3xl">
           <div className="mb-8">
-            <span className="inline-block text-9xl md:text-5xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-400 to-sky-200 animate-pulse">
+            <span className="inline-block text-5xl md:text-9xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-400 to-sky-200 animate-pulse">
               C AROUND
             </span>
           </div>
