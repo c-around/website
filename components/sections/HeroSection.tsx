@@ -10,7 +10,7 @@ export function HeroSection() {
     <section className="relative h-screen">
       <div className="absolute inset-0">
         <Image
-          src="/drone.jpg"
+          src="/images/drone.jpg"
           alt="Drone photography"
           fill
           className="object-cover brightness-50"

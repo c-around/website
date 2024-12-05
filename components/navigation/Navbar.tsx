@@ -16,7 +16,7 @@ export function Navbar() {
                     <Link href="/"
                           className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 flex items-center gap-2 whitespace-nowrap">
                         <Image
-                        src={'/logo.png'}
+                        src={'/images/logo.png'}
                          alt={"logo"}
                             width={50}
                             height={50}
@@ -29,6 +29,10 @@ export function Navbar() {
                         <Link href="/about" className="text-zinc-200 hover:text-sky-300 transition-colors"
                         >
                             About
+                        </Link>
+                        <Link href="/team" className="text-zinc-200 hover:text-sky-300 transition-colors"
+                        >
+                            Team
                         </Link>
                         <Link href="/pricing" className="text-zinc-200 hover:text-sky-300 transition-colors"
                         >
@@ -59,7 +63,7 @@ export function Navbar() {
                 {/* Mobile Navigation */}
                 {isMenuOpen && (
                     <div className="md:hidden py-4">
-                        <div className="flex flex-col space-y-4">
+                        <div className="flex flex-col space-y-4 bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400">
                             <Link
                                 href="/about"
                                 className="text-zinc-200 hover:text-sky-300 transition-colors"
@@ -67,6 +71,14 @@ export function Navbar() {
 
                             >
                                 About
+                            </Link>
+                            <Link
+                                href="/team"
+                                className="text-zinc-200 hover:text-sky-300 transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+
+                            >
+                                Team
                             </Link>
                             <Link
                                 href="/pricing"
@@ -86,7 +98,7 @@ export function Navbar() {
                             <Link href={'https://portal.c-around.ch'}>
 
                                 <Button variant="outline"
-                                        className="border-sky-300 text-sky-300 hover:bg-sky-300 hover:text-zinc-900">
+                                        className="border-sky-300 text-sky-300 hover:bg-sky-300 hover:text-zinc-900 bg-zinc-900 transition duration-200 ease-in-out">
                                     Client Portal
                                 </Button>
                             </Link>

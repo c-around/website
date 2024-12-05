@@ -1,7 +1,7 @@
 "use client";
 
 import { Camera, PanelTop } from "lucide-react";
-import { ServiceCard } from "@/components/ui/ServiceCard";
+import { ServiceCard } from "@/components/ServiceCard";
 import {IconDrone} from "@tabler/icons-react";
 
 export function ServicesSection() {
@@ -16,16 +16,19 @@ export function ServicesSection() {
             icon={<IconDrone className="w-12 h-12 text-sky-300" />}
             title="Drone Photography"
             description="Aerial perspectives that showcase your property's full potential and surrounding environment."
+            link={'/services/drone'}
           />
           <ServiceCard
             icon={<Camera className="w-12 h-12 text-sky-300" />}
             title="Real Estate Photography"
             description="Professional interior and exterior photography that highlights your property's best features."
+            link={'/services/real-estate'}
           />
           <ServiceCard
             icon={<PanelTop className="w-12 h-12 text-sky-300" />}
             title="360° Room Tours"
             description="Immersive virtual tours that give potential buyers a realistic feel of the space."
+            link={'/services/360-tours'}
           />
         </div>
       </div>

@@ -2,13 +2,19 @@
 
 import Link from 'next/link';
 import {Mail, MapPin} from 'lucide-react';
-import {IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandTiktok} from "@tabler/icons-react";
+import {
+    IconBrandFacebook,
+    IconBrandGithub,
+    IconBrandInstagram,
+    IconBrandLinkedin,
+    IconBrandTiktok
+} from "@tabler/icons-react";
 
 export function Footer() {
     return (
         <footer className="bg-zinc-950 text-zinc-400">
             <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
                     {/* Company Info */}
                     <div>
                         <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 mb-4">
@@ -42,6 +48,12 @@ export function Footer() {
                             >
                                 <IconBrandTiktok size={20}/>
                             </Link>
+                            <Link href="https://github.com/c-around"
+                                  className="hover:text-sky-300 transition-colors"
+                                  target={"_blank"}
+                            >
+                                <IconBrandGithub size={20}/>
+                            </Link>
                         </div>
                     </div>
 
@@ -51,7 +63,12 @@ export function Footer() {
                         <ul className="space-y-2">
                             <li>
                                 <Link href="/about" className="hover:text-sky-300 transition-colors">
-                                    About Us
+                                    About
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/team" className="hover:text-sky-300 transition-colors">
+                                    Team
                                 </Link>
                             </li>
                             <li>
@@ -65,7 +82,8 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="https://portal.c-around.ch" className="hover:text-sky-300 transition-colors">
+                                <Link href="https://portal.c-around.ch"
+                                      className="hover:text-sky-300 transition-colors">
                                     Client Portal
                                 </Link>
                             </li>
@@ -89,6 +107,27 @@ export function Footer() {
                             <li>
                                 <Link href="/services/360-tours" className="hover:text-sky-300 transition-colors">
                                     360° Room Tours
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 className="text-white font-semibold mb-4">About</h4>
+                        <ul className="space-y-2">
+                            <li>
+                                <Link href="/about/imprint" className="hover:text-sky-300 transition-colors">
+                                    Impressum
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/about/privacy" className="hover:text-sky-300 transition-colors">
+                                    Privacy Policy
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/about/terms" className="hover:text-sky-300 transition-colors">
+                                    Terms & Conditions
                                 </Link>
                             </li>
                         </ul>
