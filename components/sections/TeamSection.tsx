@@ -15,9 +15,9 @@ export function TeamSection() {
                         role="CEO & CTO"
                         image="/images/team/colin-heggli.jpg"
                         socials={[
-                            { Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/colin-heggli/' },
-                            { Icon: IconBrandGithub, url: 'https://github.com/M4rshe1' },
-                            { Icon: Globe, url: 'https://colin.heggli.dev' },
+                            {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/colin-heggli/'},
+                            {Icon: IconBrandGithub, url: 'https://github.com/M4rshe1'},
+                            {Icon: Globe, url: 'https://colin.heggli.dev'},
                         ]}
                     />
                     <TeamCard
@@ -25,29 +25,27 @@ export function TeamSection() {
                         role="CAO & CEO stv."
                         image="/images/team/florian-raschle.webp"
                         socials={[
-                            { Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/florian-raschle-006495299/' },
-                        ]}
-                    />
-                    <TeamCard
-                        name="Dilay Türkmen"
-                        role="CMO"
-                        image="/images/team/dilay-tuerkmen.jpg"
-                        socials={[
+                            {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/florian-raschle-006495299/'},
                         ]}
                     />
                     <TeamCard
                         name="Laurenz Buel"
                         role="CFO"
                         image="/images/team/laurenz-buel.jpg"
-                        socials={[
-                        ]}
+                        socials={[]}
                     />
                     <TeamCard
+                        name="Dilay Türkmen"
+                        role="CMO"
+                        image="/images/team/dilay-tuerkmen.jpg"
+                        socials={[]}
+                    />
+
+                    <TeamCard
                         name="Natherat Kamluea"
-                        role="CFO"
+                        role="CMO"
                         image="/images/team/natherat-kamluea.jpg"
-                        socials={[
-                        ]}
+                        socials={[]}
                     />
                 </div>
             </div>

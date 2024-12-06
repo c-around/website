@@ -1,8 +1,10 @@
 "use client";
 
 import {Home, Info, Phone} from "lucide-react";
+import {useState} from "react";
 
 export function ImprintSection() {
+    const [showDisclaimer, setShowDisclaimer] = useState(false);
     return (
         <section className="py-24 bg-gradient-to-b from-zinc-800 to-zinc-900" id="impressum">
             <div className="container mx-auto px-4">
@@ -14,11 +16,12 @@ export function ImprintSection() {
                     <div className="bg-zinc-700 rounded-lg p-6 text-white shadow-md">
                         <div className="flex items-center mb-4">
                             <Home className="w-10 h-10 text-sky-300"/>
-                            <h3 className="ml-4 text-xl font-bold">Angaben gemäß § 5 TMG</h3>
+                            <h3 className="ml-4 text-xl font-bold">Anschrift</h3>
                         </div>
                         <p>C Around</p>
                         <p>Hintersteig 12</p>
-                        <p> 8200 Schaffhausen</p>
+                        <p>8200 Schaffhausen</p>
+                        <p>Schweiz</p>
                     </div>
 
                     {/* Contact Section */}
@@ -52,15 +55,42 @@ export function ImprintSection() {
 
                     {/* Disclaimer Section */}
                     <div className="bg-zinc-700 rounded-lg p-6 text-white shadow-md">
-                        <div className="flex items-center mb-4">
+                        <div className="flex items-center mb-4 cursor-pointer"
+                             >
                             <Info className="w-10 h-10 text-sky-300"/>
                             <h3 className="ml-4 text-xl font-bold">Haftungsausschluss</h3>
                         </div>
-                        <p>
-                            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die
-                            Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine
-                            Gewähr übernehmen.
-                        </p>
+                        {showDisclaimer ? (
+                                <p>
+                                    Alle Texte und Links wurden sorgfältig geprüft und werden laufend aktualisiert.
+                                    Wir sind bemüht, richtige und vollständige Informationen auf dieser Website
+                                    bereitzustellen,
+                                    übernehmen aber keinerlei Verantwortung, Garantien oder Haftung dafür,
+                                    dass die durch diese Website bereitgestellten Informationen, richtig, vollständig oder
+                                    aktuell sind.
+                                    Wir behalten uns das Recht vor, jederzeit und ohne Vorankündigung die Informationen auf
+                                    dieser Website zu ändern und verpflichten uns auch nicht,
+                                    die enthaltenen Informationen zu aktualisieren.
+                                    Alle Links zu externen Anbietern wurden zum Zeitpunkt ihrer Aufnahme auf ihre
+                                    Richtigkeit überprüft,
+                                    dennoch haften wir nicht für Inhalte und Verfügbarkeit von Websites, die mittels
+                                    Hyperlinks zu erreichen sind.
+                                    Für illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden,
+                                    die durch Inhalte verknüpfter Seiten entstehen, haftet allein der Anbieter der Seite,
+                                    auf welche verwiesen wurde. Dabei ist es gleichgültig, ob der Schaden direkter,
+                                    indirekter oder finanzieller Natur ist oder ein sonstiger Schaden vorliegt,
+                                    der sich aus Datenverlust, Nutzungsausfall oder anderen Gründen aller Art ergeben
+                                    könnte. <br/><span className={'text-sky-300 cursor-pointer hover:underline'}
+                                                       onClick={() => setShowDisclaimer(!showDisclaimer)}>weniger anzeigen</span>
+                                </p>
+                            ) :
+                            <p>
+                                Alle Texte und Links wurden sorgfältig geprüft und werden laufend aktualisiert.
+                                Wir sind bemüht, richtige und vollständige Informationen auf dieser Website
+                                bereitzustellen,
+                                übernehmen aber keinerlei...<br/> <span className={'text-sky-300 cursor-pointer hover:underline'} onClick={() => setShowDisclaimer(!showDisclaimer)}>mehr anzeigen</span>
+                            </p>
+                        }
                     </div>
 
                     {/* Dispute Resolution Section */}
