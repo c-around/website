@@ -29,7 +29,7 @@ export function TeamSection() {
                         ]}
                     />
                     <TeamCard
-                        name="Laurenz Buel"
+                        name="Laurenz Büel"
                         role="CFO"
                         image="/images/team/laurenz-buel.jpg"
                         socials={[
