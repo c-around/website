@@ -32,7 +32,9 @@ export function TeamSection() {
                         name="Laurenz Buel"
                         role="CFO"
                         image="/images/team/laurenz-buel.jpg"
-                        socials={[]}
+                        socials={[
+                            {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/laurenz-b%C3%BCel-86797427a/'},
+                        ]}
                     />
                     <TeamCard
                         name="Dilay Türkmen"
