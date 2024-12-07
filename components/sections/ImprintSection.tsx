@@ -6,14 +6,15 @@ import {useState} from "react";
 export function ImprintSection() {
     const [showDisclaimer, setShowDisclaimer] = useState(false);
     return (
-        <section className="py-24 bg-gradient-to-b from-zinc-800 to-zinc-900" id="impressum">
+        <section className="py-24 bg-gradient-to-b from-zinc-800 to-zinc-900 text-zinc-300 group-hover:text-zinc-200" id="impressum">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 text-center mb-16">
                     Impressum
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {/* Address Section */}
-                    <div className="bg-zinc-700 rounded-lg p-6 text-white shadow-md">
+                    <div
+                        className="group bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 hover:-translate-y-1 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm">
                         <div className="flex items-center mb-4">
                             <Home className="w-10 h-10 text-sky-300"/>
                             <h3 className="ml-4 text-xl font-bold">Anschrift</h3>
@@ -25,7 +26,8 @@ export function ImprintSection() {
                     </div>
 
                     {/* Contact Section */}
-                    <div className="bg-zinc-700 rounded-lg p-6 text-white shadow-md">
+                    <div
+                        className="group bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 hover:-translate-y-1 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm">
                         <div className="flex items-center mb-4">
                             <Phone className="w-10 h-10 text-sky-300"/>
                             <h3 className="ml-4 text-xl font-bold">Kontakt</h3>
@@ -54,9 +56,25 @@ export function ImprintSection() {
                     {/*</div>*/}
 
                     {/* Disclaimer Section */}
-                    <div className="bg-zinc-700 rounded-lg p-6 text-white shadow-md">
+
+                    {/* Dispute Resolution Section */}
+                    <div
+                        className="group bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 hover:-translate-y-1 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm">
+                        <div className="flex items-center mb-4">
+                            <Info className="w-10 h-10 text-sky-300"/>
+                            <h3 className="ml-4 text-xl font-bold">
+                                Verbraucherstreitbeilegung
+                            </h3>
+                        </div>
+                        <p>
+                            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                            Verbraucherschlichtungsstelle teilzunehmen.
+                        </p>
+                    </div>
+                    <div
+                        className="group bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 hover:-translate-y-1 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm">
                         <div className="flex items-center mb-4 cursor-pointer"
-                             >
+                        >
                             <Info className="w-10 h-10 text-sky-300"/>
                             <h3 className="ml-4 text-xl font-bold">Haftungsausschluss</h3>
                         </div>
@@ -88,24 +106,13 @@ export function ImprintSection() {
                                 Alle Texte und Links wurden sorgfältig geprüft und werden laufend aktualisiert.
                                 Wir sind bemüht, richtige und vollständige Informationen auf dieser Website
                                 bereitzustellen,
-                                übernehmen aber keinerlei...<br/> <span className={'text-sky-300 cursor-pointer hover:underline'} onClick={() => setShowDisclaimer(!showDisclaimer)}>mehr anzeigen</span>
+                                übernehmen aber keinerlei...<br/> <span
+                                className={'text-sky-300 cursor-pointer hover:underline'}
+                                onClick={() => setShowDisclaimer(!showDisclaimer)}>mehr anzeigen</span>
                             </p>
                         }
                     </div>
 
-                    {/* Dispute Resolution Section */}
-                    <div className="bg-zinc-700 rounded-lg p-6 text-white shadow-md">
-                        <div className="flex items-center mb-4">
-                            <Info className="w-10 h-10 text-sky-300"/>
-                            <h3 className="ml-4 text-xl font-bold">
-                                Verbraucherstreitbeilegung
-                            </h3>
-                        </div>
-                        <p>
-                            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-                            Verbraucherschlichtungsstelle teilzunehmen.
-                        </p>
-                    </div>
                 </div>
             </div>
         </section>
