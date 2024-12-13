@@ -21,7 +21,7 @@ export function Footer() {
                             C AROUND
                         </h3>
                         <p className="mb-4">
-                            Professional drone photography and real estate imagery services in Switzerland.
+                            Professionelle Drohnenfotografie und Immobilienbilder in der Schweiz.
                         </p>
                         <div className="flex space-x-4">
                             <Link
@@ -73,18 +73,18 @@ export function Footer() {
                             </li>
                             <li>
                                 <Link href="/pricing" className="hover:text-sky-300 transition-colors">
-                                    Pricing
+                                    Preise
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/contact" className="hover:text-sky-300 transition-colors">
-                                    Contact
+                                    Kontakt
                                 </Link>
                             </li>
                             <li>
                                 <Link href="https://portal.c-around.ch"
                                       className="hover:text-sky-300 transition-colors">
-                                    Client Portal
+                                    Kundenportal
                                 </Link>
                             </li>
                         </ul>
@@ -92,16 +92,16 @@ export function Footer() {
 
                     {/* Services */}
                     <div>
-                        <h4 className="text-white font-semibold mb-4">Services</h4>
+                        <h4 className="text-white font-semibold mb-4">Angebote</h4>
                         <ul className="space-y-2">
                             <li>
                                 <Link href="/services/drone" className="hover:text-sky-300 transition-colors">
-                                    Drone Photography
+                                    Drohnenfotografie
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/services/real-estate" className="hover:text-sky-300 transition-colors">
-                                    Real Estate Photography
+                                    Immobilienfotografie
                                 </Link>
                             </li>
                             <li>

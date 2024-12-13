@@ -36,17 +36,17 @@ export function Navbar() {
                         </Link>
                         <Link href="/pricing" className="text-zinc-200 hover:text-sky-300 transition-colors"
                         >
-                            Pricing
+                            Preise
                         </Link>
                         <Link href="/contact" className="text-zinc-200 hover:text-sky-300 transition-colors"
                         >
-                            Contact
+                            Kontakt
                         </Link>
                         <Link href={'https://portal.c-around.ch'}>
 
                             <Button variant="outline"
                                     className="border-sky-300 text-sky-300 hover:bg-sky-300 hover:text-zinc-900 bg-zinc-900 transition duration-200 ease-in-out">
-                                Client Portal
+                                Kundenportal
                             </Button>
                         </Link>
                     </div>
@@ -86,20 +86,20 @@ export function Navbar() {
                                 onClick={() => setIsMenuOpen(false)}
 
                             >
-                                Pricing
+                                Preise
                             </Link>
                             <Link
                                 href="/contact"
                                 className="text-zinc-200 hover:text-sky-300 transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                Contact
+                                Kontakt
                             </Link>
                             <Link href={'https://portal.c-around.ch'}>
 
                                 <Button variant="outline"
                                         className="border-sky-300 text-sky-300 hover:bg-sky-300 hover:text-zinc-900 bg-zinc-900 transition duration-200 ease-in-out">
-                                    Client Portal
+                                    Kundenportal
                                 </Button>
                             </Link>
                         </div>
