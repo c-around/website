@@ -8,7 +8,7 @@ export function AboutSection() {
         <section className="py-24 bg-gradient-to-b from-zinc-800 to-zinc-900" id="about">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 text-center mb-16">
-                    Über CAround
+                    Über C Around
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {/* Company Overview Card */}

@@ -26,16 +26,16 @@ export function HeroSection() {
             </span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-            Capturing Perspectives That Matter
+            Perspektiven, die überzeugen
           </h1>
           <p className="text-xl text-zinc-200 mb-8 drop-shadow-lg">
-            Professional drone photography, real estate imagery, and immersive 360° tours
-            for your property
+            Professionelle Drohnenfotografie, Immobilienbilder und immersive
+            360°-Touren für Ihr Objekt
           </p>
           <Link href={"#services"}>
 
           <Button size="lg" className="bg-gradient-to-r from-sky-400 to-sky-300 hover:from-sky-500 hover:to-sky-400 text-zinc-900 font-semibold shadow-lg hover:shadow-sky-300/25 transition-all duration-300">
-            Get Started <ArrowRight className="ml-2" />
+            los legen <ArrowRight className="ml-2" />
           </Button>
           </Link>
         </div>
