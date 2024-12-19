@@ -5,3 +5,5 @@ const Page = async () => {
         </main>
     );
 }
+
+export default Page;
