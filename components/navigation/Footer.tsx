@@ -36,7 +36,7 @@ export function Footer() {
                             >
                                 <IconBrandInstagram size={20}/>
                             </Link>
-                            <Link href="https://www.linkedin.com/in/c-around-35a391340/"
+                            <Link href="https://www.linkedin.com/company/c-around"
                                   className="hover:text-sky-300 transition-colors"
                                   target={"_blank"}
                             >
