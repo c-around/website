@@ -30,6 +30,10 @@ export function Navbar() {
                         >
                             About
                         </Link>
+                        <Link href="/services" className="text-zinc-200 hover:text-sky-300 transition-colors"
+                        >
+                            Services
+                        </Link>
                         <Link href="/team" className="text-zinc-200 hover:text-sky-300 transition-colors"
                         >
                             Team
@@ -71,6 +75,14 @@ export function Navbar() {
 
                             >
                                 About
+                            </Link>
+                            <Link
+                                href="/services"
+                                className="text-zinc-200 hover:text-sky-300 transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+
+                            >
+                                Services
                             </Link>
                             <Link
                                 href="/team"

@@ -17,18 +17,16 @@ const DroneSection = () => {
     return (
         <section className="py-24 bg-gradient-to-b from-zinc-900 to-zinc-950">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 text-center mb-16">
-                    Dronen Fotografie
-                    <p className="text-lg text-gray-300 mt-2">
-                        Alle Bilder sind &copy; Copyright geschützt und Eigentum von{' '}
-                        <Link
-                            className="hover:underline text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400"
-                            href="https://c-around.ch"
-                        >
-                            C Around
-                        </Link>.
+                <div className={"mb-16"}>
+
+                    <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 text-center">
+                        Dronen Fotografie
+                    </h2>
+                    <p className="text-sm text-gray-300 mt-2 font-semibold text-center">
+                        Erhalten Sie einen neuen Blick auf Ihr Grundstück mit unseren
+                        professionellen Drohnenfotografie-Dienst
                     </p>
-                </h2>
+                </div>
                 <Masonry
                     breakpointCols={breakpointColumnsObj}
                     className="masonry-grid"
@@ -46,6 +44,15 @@ const DroneSection = () => {
                         </div>
                     ))}
                 </Masonry>
+                <p className="text-sm text-gray-300 mt-2 font-semibold text-center">
+                    Alle Bilder sind &copy; Copyright geschützt und Eigentum von{' '}
+                    <Link
+                        className="hover:underline text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400"
+                        href="https://c-around.ch"
+                    >
+                        C Around
+                    </Link>.
+                </p>
             </div>
         </section>
     );

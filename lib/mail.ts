@@ -1,6 +1,6 @@
 import NodeMailer from 'nodemailer'
 
-export async function sendMail(body: string, subject: string, to: string, from: string = process.env.EMAIL_FROM as string) {
+export async function sendMail(body: string, subject: string, to: string) {
     const transporter = NodeMailer.createTransport({
         host: process.env.EMAIL_SERVER_HOST,
         port: parseInt(process.env.EMAIL_SERVER_PORT as string),
@@ -34,5 +34,5 @@ export async function sendContactMail(name: string, email: string, phone: string
         </div>
     `;
 
-    return await sendMail(body, subject ? subject : 'Contact Form Submission', process.env.EMAIL_FROM as string, email ?? process.env.EMAIL_FROM as string);
+    return await sendMail(body, subject ? subject : 'Contact Form Submission', process.env.EMAIL_FROM as string);
 }

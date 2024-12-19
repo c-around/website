@@ -9,7 +9,7 @@ export function ServicesSection() {
     <section className="py-24 bg-gradient-to-b from-zinc-800 to-zinc-900" id={'services'}>
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 text-center mb-16">
-          Unsere Services
+          Unsere Angebote
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           <ServiceCard

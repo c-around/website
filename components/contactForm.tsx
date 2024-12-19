@@ -6,10 +6,7 @@ import Link from "next/link";
 import {sendContactMail} from "@/lib/mail";
 import {redirect} from "next/navigation";
 
-export default async function ContactForm(props: {
-    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
-}) {
-    const searchParams = await props.searchParams;
+export default async function ContactForm({success} : {success: string}) {
     const handleSubmit = async (formData: FormData) => {
         "use server";
         const name = formData.get("name") as string;
@@ -21,15 +18,13 @@ export default async function ContactForm(props: {
         redirect("/contact/?success=true");
     };
 
-    console.log(searchParams)
-
     return (
         <section className="py-24 bg-gradient-to-b from-zinc-900 to-zinc-950">
             <div className="container mx-auto px-4">
                 <div
                     className="max-w-2xl mx-auto bg-zinc-800/50 p-12 rounded-2xl shadow-2xl backdrop-blur-sm border border-zinc-700/50">
                     {
-                        searchParams?.success === 'true' && (
+                        success === 'true' && (
                             <div className="bg-sky-400 text-zinc-900 p-4 rounded-md mb-8">
                                 Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns so schnell wie möglich bei Ihnen
                                 melden.

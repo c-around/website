@@ -36,7 +36,7 @@ export function AboutSection() {
                     <AboutCard
                         icon={<Info className="w-10 h-10 text-sky-300"/>}
                         title="Zielgruppe"
-                        description="Unsere Kunden sind Immobilienmakler, Bauträger und private Verkäufer, die eine ansprechende Präsentation ihrer Objekte suchen."
+                        description="Unsere Kunden sind Immobilienmakler, Bauträger und private Verkäufer, die eine ansprechende Präsentation ihrer Objekte suchen. Oder auch einfach auch Leute, die ihre Immobilie aus einer anderen Perspektive betrachten wollen."
                     />
                 </div>
             </div>
