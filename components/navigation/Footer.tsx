@@ -9,8 +9,15 @@ import {
     IconBrandLinkedin,
     IconBrandTiktok
 } from "@tabler/icons-react";
+import {SOCIALS} from "@/settings";
+
 
 export function Footer() {
+
+    const socials = [
+        
+    ]
+
     return (
         <footer className="bg-zinc-950 text-zinc-400">
             <div className="container mx-auto px-4 py-12">
@@ -24,36 +31,13 @@ export function Footer() {
                             Professionelle Drohnenfotografie und Immobilienbilder in der Schweiz.
                         </p>
                         <div className="flex space-x-4">
-                            <Link
-                                href="https://www.facebook.com/people/C-Around-AG/pfbid0noMRn2gCZL1Qz9aL9Bk8ngzRUCCfBNim7sC7Gv5yHs3EMV2g2D2zMtwx5HcUBDVFl/"
-                                target={"_blank"}
-                                className="hover:text-sky-300 transition-colors">
-                                <IconBrandFacebook size={20}/>
-                            </Link>
-                            <Link href="https://www.instagram.com/c_around_sh/"
-                                  className="hover:text-sky-300 transition-colors"
-                                  target={"_blank"}
-                            >
-                                <IconBrandInstagram size={20}/>
-                            </Link>
-                            <Link href="https://www.linkedin.com/company/c-around"
-                                  className="hover:text-sky-300 transition-colors"
-                                  target={"_blank"}
-                            >
-                                <IconBrandLinkedin size={20}/>
-                            </Link>
-                            <Link href="https://www.tiktok.com/@c_around_sh?lang=de-DE"
-                                  className="hover:text-sky-300 transition-colors"
-                                  target={"_blank"}
-                            >
-                                <IconBrandTiktok size={20}/>
-                            </Link>
-                            <Link href="https://github.com/c-around"
-                                  className="hover:text-sky-300 transition-colors"
-                                  target={"_blank"}
-                            >
-                                <IconBrandGithub size={20}/>
-                            </Link>
+                            {
+                                SOCIALS.map(({name, url, Icon}, index) => (
+                                    <Link key={index} href={url} className="hover:text-sky-300 transition-colors">
+                                        <Icon/>
+                                    </Link>
+                                ))
+                            }
                         </div>
                     </div>
 

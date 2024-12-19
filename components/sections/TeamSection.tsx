@@ -1,53 +1,9 @@
 import {TeamCard} from "@/components/TeamCard";
 import {IconBrandGithub, IconBrandLinkedin} from "@tabler/icons-react";
 import {Globe} from "lucide-react";
+import {TEAM} from "@/settings";
 
 export function TeamSection() {
-    const Team = [
-        {
-            name: "Colin Heggli",
-            role: "CEO & CTO",
-            image: "/images/team/colin-heggli.jpg",
-            socials: [
-                {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/colin-heggli/'},
-                {Icon: IconBrandGithub, url: 'https://github.com/M4rshe1'},
-                {Icon: Globe, url: 'https://colin.heggli.dev'},
-            ]
-        },
-        {
-            name: "Florian Raschle",
-            role: "CAO & CEO stv.",
-            image: "/images/team/florian-raschle.webp",
-            socials: [
-                {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/florian-raschle-006495299/'},
-            ]
-        },
-        {
-            name: "Laurenz Büel",
-            role: "CFO",
-            image: "/images/team/laurenz-buel.jpg",
-            socials: [
-                {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/laurenz-b%C3%BCel-86797427a/'},
-            ]
-        },
-        {
-            name: "Dilay Türkmen",
-            role: "CMO",
-            image: "/images/team/dilay-tuerkmen.jpg",
-            socials: []
-        },
-        {
-            name: "Natherat Kamluea",
-            role: "CMO",
-            image: "/images/team/natherat-kamluea.jpg",
-            socials: [
-                {
-                    Icon: IconBrandLinkedin,
-                    url: 'https://www.linkedin.com/in/natarat-khamluea-991a63342/'
-                }
-            ]
-        }
-    ];
     
     return (
         <section className="py-24 bg-gradient-to-b from-zinc-900 to-zinc-950">
@@ -56,7 +12,7 @@ export function TeamSection() {
                     Unser Team
                 </h2>
                 <div className="grid md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {Team.map((member, index) => (
+                    {TEAM.map((member, index) => (
                         <TeamCard
                             key={index}
                             name={member.name}

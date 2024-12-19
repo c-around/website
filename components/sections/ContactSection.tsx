@@ -16,7 +16,7 @@ export function ContactSection() {
                     <p className="text-xl text-zinc-300 mb-8">
                         Kontaktieren Sie uns für ein unverbindliches Angebot oder weitere Informationen.
                     </p>
-                    <Link href={'mailto:info@c-around.ch'}>
+                    <Link href={'/contact'}>
 
                         <Button size="lg"
                                 className="bg-gradient-to-r from-sky-400 to-sky-300 hover:from-sky-500 hover:to-sky-400 text-zinc-900 font-semibold shadow-lg hover:shadow-sky-300/25 transition-all duration-300">
