@@ -11,28 +11,24 @@ export function AboutSection() {
                     Über C Around
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* Company Overview Card */}
                     <AboutCard
                         icon={<Home className="w-10 h-10 text-sky-300"/>}
                         title="Unternehmensprofil"
                         description="CAround ist ein modernes Unternehmen, das sich auf hochwertige visuelle Lösungen für die Immobilienbranche spezialisiert hat. Mit innovativer Technologie und kreativen Ansätzen bieten wir eine breite Palette an Dienstleistungen."
                     />
 
-                    {/* Services Card */}
                     <AboutCard
                         icon={<Camera className="w-10 h-10 text-sky-300"/>}
                         title="Dienstleistungen"
                         description="Wir bieten professionelle Immobilienfotografie, Drohnenaufnahmen und interaktive 360°-Roomtouren an, die dazu beitragen, Immobilien bestmöglich zu präsentieren."
                     />
 
-                    {/* Vision and Mission Card */}
                     <AboutCard
                         icon={<Globe className="w-10 h-10 text-sky-300"/>}
                         title="Vision und Mission"
                         description="Unsere Vision ist es, die Immobilienpräsentation zu revolutionieren und digitale Lösungen zu schaffen, die Effizienz und Attraktivität vereinen."
                     />
-
-                    {/* Target Audience Card */}
+                    
                     <AboutCard
                         icon={<Info className="w-10 h-10 text-sky-300"/>}
                         title="Zielgruppe"
