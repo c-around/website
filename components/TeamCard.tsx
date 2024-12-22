@@ -16,8 +16,7 @@ export function TeamCard({ name, role, image, socials }: { name: string, role: s
           src={image}
           alt={''}
           layout="fill"
-          objectFit="cover"
-          className={'transition-transform duration-300 hover:scale-110 row-start-1 col-start-1'}
+          className={'transition-transform duration-300 hover:scale-110 row-start-1 col-start-1 bg-cover'}
         />
       </div>
       <h3 className="text-xl font-bold text-zinc-200 mt-4">{name}</h3>
@@ -29,7 +28,7 @@ export function TeamCard({ name, role, image, socials }: { name: string, role: s
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className={'hover:text-sky-300 transition-colors bg-zinc-900/50 p-2 rounded-full text-zinc-300'}
+            className={'hover:text-sky-300 hover:bg-sky-300/10 transition-colors bg-zinc-900/50 p-2 rounded-full text-zinc-300'}
           >
             <Icon size={24} />
           </Link>

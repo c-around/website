@@ -2,13 +2,6 @@
 
 import Link from 'next/link';
 import {Mail, MapPin} from 'lucide-react';
-import {
-    IconBrandFacebook,
-    IconBrandGithub,
-    IconBrandInstagram,
-    IconBrandLinkedin,
-    IconBrandTiktok
-} from "@tabler/icons-react";
 import {SOCIALS} from "@/settings";
 
 

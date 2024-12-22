@@ -1,6 +1,4 @@
 import {TeamCard} from "@/components/TeamCard";
-import {IconBrandGithub, IconBrandLinkedin} from "@tabler/icons-react";
-import {Globe} from "lucide-react";
 import {TEAM} from "@/settings";
 
 export function TeamSection() {
