@@ -67,7 +67,9 @@ export const TEAM = [
         name: "Dilay Türkmen",
         role: "CMO",
         image: "/images/team/dilay-tuerkmen.jpg",
-        socials: []
+        socials: [
+            {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/dilay-türkmen-37bab5346/'},
+        ]
     },
     {
         name: "Natherat Kamluea",
@@ -81,4 +83,3 @@ export const TEAM = [
         ]
     }
 ];
-    
