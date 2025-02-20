@@ -36,7 +36,7 @@ export default async function ContactForm({success} : {success: string}) {
                     </h2>
                     <p className="text-xl text-zinc-300 mb-8 text-center">
                         Bereits ein Konto bei uns? <br/>
-                        Dann können Sie Ihre beshellung direkt über das
+                        Dann können Sie Ihre Bestellung direkt über das
                         <Link href={"https://portal.c-around.ch/account/orders/new"}
                               className="text-sky-300 hover:underline">
                             {" "}
