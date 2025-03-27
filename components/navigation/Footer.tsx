@@ -6,16 +6,10 @@ import {SOCIALS} from "@/settings";
 
 
 export function Footer() {
-
-    const socials = [
-        
-    ]
-
     return (
         <footer className="bg-zinc-950 text-zinc-400">
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                    {/* Company Info */}
                     <div>
                         <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 mb-4">
                             C AROUND
