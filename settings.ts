@@ -38,7 +38,7 @@ export const SOCIALS = [
 export const TEAM = [
     {
         name: "Colin Heggli",
-        role: "CEO & CTO",
+        role: "CEO",
         image: "/images/team/colin-heggli.jpg",
         socials: [
             {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/colin-heggli/'},
@@ -72,7 +72,7 @@ export const TEAM = [
     },
     {
         name: "Natherat Kamluea",
-        role: "CMO",
+        role: "CTO",
         image: "/images/team/natherat-kamluea.jpg",
         socials: [
             {
