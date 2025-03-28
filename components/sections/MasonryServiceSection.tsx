@@ -12,12 +12,10 @@ const breakpointColumnsObj = {
 };
 
 const MasonryServiceSection = ({title, description, images}: {title: string, description: string, images: string[]}) => {
-
     return (
-        <section className="py-24 bg-gradient-to-b from-zinc-900 to-zinc-950">
+        <section className="py-2 bg-gradient-to-b from-zinc-900 to-zinc-950">
             <div className="container mx-auto px-4">
                 <div className={"mb-16"}>
-
                     <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 text-center">
                         {title}
                     </h2>
