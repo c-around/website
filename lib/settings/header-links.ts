@@ -99,7 +99,8 @@ export const HEADER_LINKS: HeaderLink[] = [
     },
     {
         title: "Kundenportal",
-        href: "https://portal.c-around.ch",
+        href: "/client-portal",
+        // href: "https://portal.c-around.ch",
         whiteButton: true
     }
 ];
