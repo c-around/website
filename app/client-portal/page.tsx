@@ -1,4 +1,11 @@
 import ComingSoon from "@/components/sections/comingSoon";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "C AROUND | Kundenportal",
+    description: "Das Kundenportal ist in Arbeit und wird bald verfügbar sein.",
+}
+
 
 const Page = () => {
     return (

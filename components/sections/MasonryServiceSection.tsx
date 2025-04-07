@@ -46,7 +46,7 @@ const MasonryServiceSection = ({title, description, images}: {title: string, des
                         className="hover:underline text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400"
                         href="https://c-around.ch"
                     >
-                        C Around
+                        C AROUND
                     </Link>.
                 </p>
             </div>

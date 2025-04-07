@@ -1,5 +1,6 @@
 import {
     Banknote,
+    CircleHelp,
     GalleryVerticalEnd,
     ImageIcon,
     Info,
@@ -24,14 +25,28 @@ export interface HeaderLink {
 
 export const HEADER_LINKS: HeaderLink[] = [
     {
-        title: "Preise",
-        href: "/pricing",
-        icon: Banknote
-    },
-    {
         title: "Kontakt",
         href: "/contact",
         icon: Mail
+    },
+    {
+        title: "Info",
+        href: "/pricing",
+        icon: Info,
+        submenu: [
+            {
+                title: "Preise",
+                description: "Erhalten Sie einen Überblick über unsere Preise",
+                icon: Banknote,
+                href: "/pricing",
+            },
+            {
+                title: "FAQ",
+                description: "Häufig gestellte Fragen zu C AROUND, unseren Services und Preisen",
+                icon: CircleHelp,
+                href: "/qna",
+            },
+            ]
     },
     {
         title: "Über uns",
@@ -40,7 +55,7 @@ export const HEADER_LINKS: HeaderLink[] = [
         submenu: [
             {
                 title: "Über uns",
-                description: "Erfahren Sie mehr über C Around",
+                description: "Erfahren Sie mehr über C AROUND",
                 icon: Info,
                 href: "/about",
                 banner: true

@@ -1,5 +1,11 @@
 import MasonryServiceSection from "@/components/sections/MasonryServiceSection";
 import {SERVICE_IMAGES} from "@/settings";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "C AROUND | Drohnen Fotografie",
+    description: "Erhalten Sie einen neuen Blick auf Ihr Grundstück mit unseren professionellen Drohnenfotografie-Dienst",
+}
 
 const ServiceDonePage = () => {
     return (

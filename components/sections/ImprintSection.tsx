@@ -19,7 +19,7 @@ export function ImprintSection() {
                             <Home className="w-10 h-10 text-sky-300"/>
                             <h3 className="ml-4 text-xl font-bold">Anschrift</h3>
                         </div>
-                        <p>C Around</p>
+                        <p>C AROUND</p>
                         <p>Hintersteig 12</p>
                         <p>8200 Schaffhausen</p>
                         <p>Schweiz</p>

@@ -125,7 +125,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-zinc-800 mt-12 pt-8 text-center">
-                    <p>&copy; {new Date().getFullYear()} C Around. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} C AROUND. All rights reserved.</p>
                 </div>
             </div>
         </footer>
