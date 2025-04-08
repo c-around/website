@@ -7,8 +7,12 @@ export function AboutSection() {
     return (
         <section className="py-24 bg-gradient-to-b from-zinc-800 to-zinc-900" id="about">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 text-center mb-16">
-                    Über C AROUND
+                <h2 className="text-4xl font-bold mt-8 text-center mb-16">
+                    Über
+                    {" "}
+                    <span className={"text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400"}>
+                    C AROUND
+                    </span>
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <AboutCard

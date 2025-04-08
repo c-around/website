@@ -20,7 +20,7 @@ const TourReferenceSection = ({title, description}: { title: string, description
                         {description}
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                     {TOUR_REFERENCE.map((reference) => (
                         <ReferenceCard key={reference.title} reference={reference}/>
                     ))}
@@ -33,7 +33,7 @@ const TourReferenceSection = ({title, description}: { title: string, description
 
 const ReferenceCard = ({reference}: ReferenceCardProps) => {
     return (
-        <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 p-2 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 hover:-translate-y-1 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm flex flex-col h-full">
+        <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 p-2 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm flex flex-col h-full">
             <Image
                 src={reference.image}
                 alt={reference.title}
@@ -63,7 +63,8 @@ const ReferenceCard = ({reference}: ReferenceCardProps) => {
                         <Link
                             target={"_blank"}
                             href={reference.website}
-                            className="w-full py-3 grow bg-gradient-to-r from-sky-400 to-sky-300 hover:from-sky-500 hover:to-sky-400 rounded-lg text-zinc-900 font-semibold shadow-lg hover:shadow-sky-300/25 transition-all duration-300 mt-auto text-center"
+
+                            className="w-full grow flex items-center justify-center gap-2 transition-colors border border-sky-300 text-sky-300 hover:bg-sky-300 hover:text-zinc-900 bg-zinc-900 rounded-md font-semibold"
                         >
                             Seite Besuchen
                         </Link>

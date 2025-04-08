@@ -1,5 +1,5 @@
 import MasonryServiceSection from "@/components/sections/MasonryServiceSection";
-import {SERVICE_IMAGES} from "@/settings";
+import {SERVICE_IMAGES} from "@/lib/settings/services";
 import {Metadata} from "next";
 
 export const metadata: Metadata = {

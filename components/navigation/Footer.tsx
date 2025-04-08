@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import {Mail, MapPin} from 'lucide-react';
-import {SOCIALS} from "@/settings";
+import {SOCIALS} from "@/lib/settings/socials";
 
 
 export function Footer() {
