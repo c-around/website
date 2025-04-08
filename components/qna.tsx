@@ -16,7 +16,7 @@ import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 const QuestionAndAnswers = () => {
     return (
         <section className="py-24 bg-gradient-to-b from-zinc-800 to-zinc-900">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 min-h-screen">
                 <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 text-center mb-6">
                         Fragen und Antworten
