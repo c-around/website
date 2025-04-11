@@ -23,7 +23,7 @@ export const TEAM = [
     {
         name: "Laurenz Büel",
         role: "CFO",
-        image: "/images/team/laurenz-buel.jpg",
+        image: "/images/team/laurenz-bueel.jpg",
         socials: [
             {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/laurenz-b%C3%BCel-86797427a/'},
         ]

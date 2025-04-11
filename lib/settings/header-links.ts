@@ -74,7 +74,7 @@ export const HEADER_LINKS: HeaderLink[] = [
             },
             {
                 title: "Impressum",
-                description: "Rechtliche Informationen über AlpenCloud",
+                description: "Rechtliche Informationen über C AROUND",
                 icon: Scale,
                 href: "/about/imprint"
             },
