@@ -5,7 +5,7 @@ export const TEAM = [
     {
         name: "Colin Heggli",
         role: "CEO",
-        image: "/images/team/colin-heggli.jpg",
+        image: "/images/team/colin-heggli.png",
         socials: [
             {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/colin-heggli/'},
             {Icon: IconBrandGithub, url: 'https://github.com/M4rshe1'},
@@ -15,7 +15,7 @@ export const TEAM = [
     {
         name: "Florian Raschle",
         role: "CAO & CEO stv.",
-        image: "/images/team/florian-raschle.webp",
+        image: "/images/team/florian-raschle.png",
         socials: [
             {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/florian-raschle-006495299/'},
         ]
@@ -23,7 +23,7 @@ export const TEAM = [
     {
         name: "Laurenz Büel",
         role: "CFO",
-        image: "/images/team/laurenz-bueel.jpg",
+        image: "/images/team/laurenz-bueel.png",
         socials: [
             {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/laurenz-b%C3%BCel-86797427a/'},
         ]
@@ -31,7 +31,7 @@ export const TEAM = [
     {
         name: "Dilay Türkmen",
         role: "CMO",
-        image: "/images/team/dilay-tuerkmen.jpg",
+        image: "/images/team/dilay-tuerkmen.png",
         socials: [
             {Icon: IconBrandLinkedin, url: 'https://www.linkedin.com/in/dilay-türkmen-37bab5346/'},
         ]
@@ -39,7 +39,7 @@ export const TEAM = [
     {
         name: "Natherat Kamluea",
         role: "CTO",
-        image: "/images/team/natherat-kamluea.jpg",
+        image: "/images/team/natherat-kamluea.png",
         socials: [
             {
                 Icon: IconBrandLinkedin,
