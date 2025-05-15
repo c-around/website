@@ -7,31 +7,50 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {sendContactMail} from "@/lib/mail";
 import {redirect} from "next/navigation";
+import {useState} from "react";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
 export default function ContactForm() {
-    // const handleSubmit = async (formData: FormData) => {
-    //     "use server";
-    //     const name = formData.get("name") as string;
-    //     const email = formData.get("email") as string;
-    //     const phone = formData.get("phone") as string;
-    //     const subject = formData.get("subject") as string;
-    //     const message = formData.get("message") as string;
-    //     await sendContactMail(name, email, phone, subject, message);
-    //     redirect("/contact/?success=true");
-    // };
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [referral, setReferral] = useState("");
+    const [referralPerson, setReferralPerson] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
 
-    const handleSubmit = (formData: FormData) => {
-        // contruct a mailto link and open it in a new tab
-        const name = formData.get("name") as string;
-        const email = formData.get("email") as string;
-        const phone = formData.get("phone") as string;
-        const subject = formData.get("subject") as string;
-        const message = formData.get("message") as string;
-
-        const mailtoLink = `mailto:info@c-around.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`)}`;
-
-        window.open(mailtoLink, "_blank");
+    function validateInput() {
+        if (!name || !email || !message) {
+            alert("Bitte füllen Sie alle Pflichtfelder aus.");
+            return false;
+        }
+        if (referral === "Person" && !referralPerson) {
+            alert("Bitte geben Sie den Namen der Person an.");
+            return false;
+        }
+        return true;
     }
+
+    const handleSubmit = () => {
+        if (!validateInput()) {
+            return;
+        }
+
+        let mailtoLink = `mailto:info@c-around.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nReferral: ${referral}`)}`;
+        if (referral === "Person") {
+            mailtoLink += `\nReferral Person: ${referralPerson}`;
+        }
+        mailtoLink += `\n\nMessage: ${message}`;
+        window.open(mailtoLink, "_blank");
+    };
 
     return (
         <section className="py-24 bg-gradient-to-b from-zinc-900 to-zinc-950">
@@ -67,6 +86,7 @@ export default function ContactForm() {
                             <Input
                                 type="text"
                                 id="name"
+                                onChange={(e) => setName(e.target.value)}
                                 name="name"
                                 placeholder="C AROUND"
                                 required
@@ -79,6 +99,7 @@ export default function ContactForm() {
                             <Input
                                 type="email"
                                 id="email"
+                                onChange={(e) => setEmail(e.target.value)}
                                 name="email"
                                 placeholder="info@c-around.ch"
                                 required
@@ -91,6 +112,7 @@ export default function ContactForm() {
                             <Input
                                 type="tel"
                                 id="phone"
+                                onChange={(e) => setPhone(e.target.value)}
                                 name="phone"
                                 placeholder="+41 79 123 45 67"
                             />
@@ -102,6 +124,7 @@ export default function ContactForm() {
                             <Input
                                 type="text"
                                 id="subject"
+                                onChange={(e) => setSubject(e.target.value)}
                                 name="subject"
                                 placeholder="Anfrage Drohnenfotografie"
                             />
@@ -112,11 +135,59 @@ export default function ContactForm() {
                             <Label htmlFor="message">Ihre Nachricht *</Label>
                             <Textarea
                                 id="message"
+                                onChange={(e) => setMessage(e.target.value)}
                                 name="message"
                                 placeholder="Guten Tag, ich bin an einer Drohnenfotografie für mein Haus interessiert..."
                                 required
                             />
                         </div>
+
+                        {/* How did you hear about us */}
+                        <div className="grid gap-2 md:col-span-2">
+                            <Label htmlFor="referral">Wie sind Sie auf uns aufmerksam geworden? *</Label>
+                            <Select name="referral" onValueChange={(value) => setReferral(value)} required>
+                                <SelectTrigger className="bg-zinc-800 text-zinc-300 p-2 rounded-md">
+                                    <SelectValue placeholder="Bitte auswählen" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Google">Google</SelectItem>
+                                    <SelectItem value="Social Media">Social Media</SelectItem>
+                                    <SelectItem value="Person">Person</SelectItem>
+                                    <SelectItem value="Other">Sonstiges</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        {/* Person Name */}
+                        {
+                            referral === "Person" &&
+                            <div id="referral-person-field" className="grid gap-2 md:col-span-2">
+                                <Label htmlFor="referral-person">Name der Person *</Label>
+                                <Input
+                                    type="text"
+                                    id="referral-person"
+                                    name="referral-person"
+                                    placeholder="Vor- und Nachname"
+                                    onChange={(e) => setReferralPerson(e.target.value)}
+                                    required
+                                />
+                            </div>
+                        }
+
+                        {/* Hidden Person Name */}
+                        {
+                            referral !== "Person" &&
+                        <div id="referral-person-field" className="grid gap-2 md:col-span-2 hidden">
+                            <Label htmlFor="referral-person">Name der Person *</Label>
+                            <Input
+                                type="text"
+                                id="referral-person"
+                                name="referral-person"
+                                placeholder="Vor- und Nachname"
+                                onChange={(e) => setReferralPerson(e.target.value)}
+                            />
+                        </div>
+                        }
 
                         {/* Submit Button */}
                         <Button
