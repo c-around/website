@@ -1,3 +1,5 @@
+"use client"
+
 import {Label} from "@/components/ui/label"; // Importing Label from shadcn
 import {Input} from "@/components/ui/input"; // Importing Input from shadcn
 import {Textarea} from "@/components/ui/textarea"; // Importing Textarea from shadcn
@@ -6,31 +8,44 @@ import Link from "next/link";
 import {sendContactMail} from "@/lib/mail";
 import {redirect} from "next/navigation";
 
-export default async function ContactForm({success} : {success: string}) {
-    const handleSubmit = async (formData: FormData) => {
-        "use server";
+export default function ContactForm() {
+    // const handleSubmit = async (formData: FormData) => {
+    //     "use server";
+    //     const name = formData.get("name") as string;
+    //     const email = formData.get("email") as string;
+    //     const phone = formData.get("phone") as string;
+    //     const subject = formData.get("subject") as string;
+    //     const message = formData.get("message") as string;
+    //     await sendContactMail(name, email, phone, subject, message);
+    //     redirect("/contact/?success=true");
+    // };
+
+    const handleSubmit = (formData: FormData) => {
+        // contruct a mailto link and open it in a new tab
         const name = formData.get("name") as string;
         const email = formData.get("email") as string;
         const phone = formData.get("phone") as string;
         const subject = formData.get("subject") as string;
         const message = formData.get("message") as string;
-        await sendContactMail(name, email, phone, subject, message);
-        redirect("/contact/?success=true");
-    };
+
+        const mailtoLink = `mailto:info@c-around.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`)}`;
+
+        window.open(mailtoLink, "_blank");
+    }
 
     return (
         <section className="py-24 bg-gradient-to-b from-zinc-900 to-zinc-950">
             <div className="container mx-auto px-4">
                 <div
                     className="max-w-2xl mx-auto bg-zinc-800/50 p-12 rounded-2xl shadow-2xl backdrop-blur-sm border border-zinc-700/50">
-                    {
-                        success === 'true' && (
-                            <div className="bg-sky-400 text-zinc-900 p-4 rounded-md mb-8">
-                                Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns so schnell wie möglich bei Ihnen
-                                melden.
-                            </div>
-                        )
-                    }
+                    {/*{*/}
+                    {/*    success === 'true' && (*/}
+                    {/*        <div className="bg-sky-400 text-zinc-900 p-4 rounded-md mb-8">*/}
+                    {/*            Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns so schnell wie möglich bei Ihnen*/}
+                    {/*            melden.*/}
+                    {/*        </div>*/}
+                    {/*    )*/}
+                    {/*}*/}
                     <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 mb-8 text-center">
                         Kontaktformular
                     </h2>
