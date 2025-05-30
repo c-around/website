@@ -46,7 +46,7 @@ export const PRICES: Price[] = [
             if (amount < 150) {
                 return amount * unit_price;
             }
-            const effectiveAmount = amount - Math.floor(amount / 50);
+            const effectiveAmount = amount - Math.floor(amount / 15);
             return effectiveAmount * unit_price;
         },
         includes: [
@@ -104,7 +104,7 @@ export const PRICES: Price[] = [
         unit: "Stück",
         unit_price: 100,
         price: (amount: number, unit_price: number) => {
-            const discount = Math.floor(amount / 10) * 0.05;
+            const discount = Math.floor(amount / 10) * 0.005;
             const effectiveUnitPrice = unit_price * (1 - discount);
             return amount * effectiveUnitPrice;
         },
