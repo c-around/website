@@ -129,7 +129,7 @@ export default function PricingPage() {
                                     <CardContent className="space-y-6 ">
                                         <div className="space-y-4">
                                             <div className="flex justify-between items-center">
-                                                <Label>Anzahl ({amount})</Label>
+                                                <Label>Anzahl {service.unit} ({amount})</Label>
                                                 <span className="text-sm text-muted-foreground">
                                               {service.min} - {service.max}
                                             </span>
