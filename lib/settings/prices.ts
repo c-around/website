@@ -13,6 +13,7 @@ interface Price {
     reference: string;
     type: "range" | "bool" | "number";
     step: number;
+    key: string;
     max: number;
     min: number;
     icon: TablerIcon | LucideIcon;
@@ -33,6 +34,7 @@ interface Price {
 export const PRICES: Price[] = [
     {
         name: "360° Rundgang",
+        key: "360_tour",
         description: "Professionelle 360° Touren für Ihr Grundstück, Wohnung oder Haus",
         reference: "/services/360-tours",
         type: "range",
@@ -97,6 +99,7 @@ export const PRICES: Price[] = [
         description: "Professionelle 360° Einzelbilder für Ihr Grundstück, Wohnung oder Haus",
         reference: "/services/360-images",
         type: "range",
+        key: "360_images",
         max: 100,
         step: 1,
         min: 1,
@@ -127,6 +130,7 @@ export const PRICES: Price[] = [
         description: "Professionelle Immobilienfotografie für Ihr Grundstück, Wohnung oder Haus",
         reference: "/services/real-estate",
         type: "range",
+        key: "real_estate_photography",
         max: 100,
         min: 7,
         step: 1,
@@ -157,6 +161,7 @@ export const PRICES: Price[] = [
         description: "Professionelle Drohnenfotografie für Ihr Grundstück, Wohnung oder Haus",
         reference: "/services/drone",
         type: "range",
+        key: "drone_photography",
         max: 100,
         step: 1,
         min: 3,
@@ -181,5 +186,4 @@ export const PRICES: Price[] = [
             }
         ]
     },
-
 ]

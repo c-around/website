@@ -1,5 +1,6 @@
 import {
     Banknote,
+    ChartGantt,
     CircleHelp,
     GalleryVerticalEnd,
     ImageIcon,
@@ -37,6 +38,7 @@ export const HEADER_LINKS: HeaderLink[] = [
             {
                 title: "Preise",
                 description: "Erhalten Sie einen Überblick über unsere Preise",
+                banner: true,
                 icon: Banknote,
                 href: "/pricing",
             },
@@ -46,7 +48,13 @@ export const HEADER_LINKS: HeaderLink[] = [
                 icon: CircleHelp,
                 href: "/qna",
             },
-            ]
+            {
+                title: "Zeitpläne",
+                description: "Neuigkeiten, Tipps und Tricks rund um C AROUND",
+                icon: ChartGantt,
+                href: "/timelines"
+            },
+        ]
     },
     {
         title: "Über uns",

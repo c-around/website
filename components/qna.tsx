@@ -48,6 +48,12 @@ const QuestionAndAnswers = () => {
                                         remarkPlugins={[remarkGfm]}
                                         rehypePlugins={[rehypeRaw]}
                                         components={{
+                                            a: ({ node, ...props }) => (
+                                                <a
+                                                    className="text-sky-300 hover:underline transition-colors"
+                                                    {...props}
+                                                />
+                                            ),
                                             code({ node, className, children, ...props }) {
                                                 const match = /language-(\w+)/.exec(className || "");
                                                 return match ? (

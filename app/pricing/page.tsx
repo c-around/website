@@ -12,11 +12,16 @@ import {Button} from "@/components/ui/button"
 import {Badge} from "@/components/ui/badge"
 import {GLOBAL_DISCOUNT, PRICES} from "@/lib/settings/prices"
 import {cn} from "@/lib/utils";
+import {useSearchParams} from "next/navigation";
 
 export default function PricingPage() {
-    const [selectedService, setSelectedService] = useState(PRICES[0])
+    const query = useSearchParams()
+    const [selectedService, setSelectedService] = useState(
+        PRICES.find((p) => p.key === query.get("service")) || PRICES[0]
+    )
     const [amount, setAmount] = useState(selectedService.min)
     const [extras, setExtras] = useState<Record<string, boolean | number>>({})
+
 
     const handleServiceChange = (value: string) => {
         const service = PRICES.find((p) => p.name === value) || PRICES[0]
@@ -110,7 +115,7 @@ export default function PricingPage() {
                                 const Icon = service.icon;
                                 return (
                                     <TabsTrigger key={idx} value={service.name}
-                                                 className="flex items-center gap-2 data-[state=active]:text-sky-300">
+                                                 className="flex items-center gap-2 data-[state=active]:text-sky-300 lg:p-2 p-4">
                                         {Icon && <Icon className="w-5 h-5"/>}
                                         <span>{service.name}</span>
                                     </TabsTrigger>

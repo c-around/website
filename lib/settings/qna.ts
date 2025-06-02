@@ -22,7 +22,7 @@ export const QUESTIONS_AND_ANSWERS: QuestionAndAnswer[] = [
     },
     {
         question: "Wie lange dauert es, bis die Touren online ist?",
-        answer: "Nach der Aufnahme dauert es in der Regel 1-2 Tage, bis die Touren online sind.",
+        answer: "Das kann je nach Projekt variieren, genauere Informationen und unsgefähre Zeitangaben finden Sie in unseren [Zeitplänen](/timelines). In der Regel dauert es aber zwischen 1-2 Wochen, bis die Touren online sind.",
     },
 
 ]

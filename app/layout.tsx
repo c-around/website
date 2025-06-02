@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="de" className={"dark"}>
-        <body className={`${inter.className} bg-zinc-900`}>
+        <body className={`${inter.className} min-h-screen`}>
         <PlausibleProvider
             domain='c-around.ch'
             selfHosted={true}
@@ -29,7 +29,11 @@ export default function RootLayout({
             enabled
         >
             <Header/>
-            {children}
+            <div
+                className="w-full h-full bg-gradient-to-b from-zinc-900 to-zinc-950"
+            >
+                {children}
+            </div>
             <Footer/>
         </PlausibleProvider>
         </body>
