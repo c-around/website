@@ -5,6 +5,7 @@ import {Footer} from '@/components/navigation/Footer';
 import React from "react";
 import Header from "@/components/header";
 import PlausibleProvider from 'next-plausible';
+import {BANNERS} from "@/lib/settings/banners";
 
 const inter = Open_Sans({subsets: ['latin']});
 
@@ -29,6 +30,7 @@ export default function RootLayout({
             enabled
         >
             <Header/>
+            <div style={{height: `${BANNERS.length * 36}px`}}/>
             <div
                 className="w-full h-full bg-gradient-to-b from-zinc-900 to-zinc-950"
             >

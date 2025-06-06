@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import {HEADER_LINKS, HeaderLink} from "@/lib/settings/header-links";
 import {cn} from "@/lib/utils";
+import Banners from "@/components/banners";
 import Image from "next/image"; // Assuming you might want the logo image like the example
 
 const Header = () => {
@@ -21,6 +22,7 @@ const Header = () => {
     return (
         // Applied background, backdrop blur, and border from the example
         <nav className="fixed w-full z-50 bg-zinc-900/80 backdrop-blur-lg border-b border-zinc-800">
+            <Banners/>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
