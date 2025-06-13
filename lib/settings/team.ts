@@ -1,5 +1,15 @@
-import {IconBrandGithub, IconBrandLinkedin} from "@tabler/icons-react";
-import {Globe} from "lucide-react";
+import {IconBrandGithub, IconBrandLinkedin, TablerIcon} from "@tabler/icons-react";
+import {Globe, LucideIcon} from "lucide-react";
+
+export interface TeamMember {
+    name: string;
+    role: string;
+    image: string;
+    socials: {
+        Icon: LucideIcon | TablerIcon;
+        url: string;
+    }[];
+}
 
 export const TEAM = [
     {

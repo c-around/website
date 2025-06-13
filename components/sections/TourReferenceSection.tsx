@@ -3,12 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import {TOUR_REFERENCE, TourReference} from "@/lib/settings/tour-reference";
+import {useState} from "react";
 
 interface ReferenceCardProps {
     reference: TourReference
 }
 
 const TourReferenceSection = ({title, description}: { title: string, description: string }) => {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+    const filteredReferences = TOUR_REFERENCE.filter(reference => {
+        const matchesSearch = reference.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            reference.description.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesTags = selectedTags.length === 0 || reference.tags?.some(tag => selectedTags.includes(tag));
+        return matchesSearch && matchesTags;
+    });
+
     return (
         <section className="py-24 bg-gradient-to-b from-zinc-900 to-zinc-950">
             <div className="container mx-auto px-4">
@@ -20,8 +31,31 @@ const TourReferenceSection = ({title, description}: { title: string, description
                         {description}
                     </p>
                 </div>
+                <div className="mb-8 w-full">
+                    <input
+                        type="text"
+                        placeholder="Suche nach Referenzen..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="w-full p-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-colors"
+                    />
+                    <div className="mt-4 flex flex-wrap gap-2">
+                        {TOUR_REFERENCE.flatMap(reference => reference.tags || []).filter((tag, index, self) => self.indexOf(tag) === index).map(tag => (
+                            <button
+                                key={tag}
+                                onClick={() => {
+                                    setSelectedTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]);
+                                }}
+                                className={`px-3 py-1 rounded-full text-sm font-semibold transition-colors ${selectedTags.includes(tag) ? 'bg-sky-500 text-white' : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'}`}
+                            >
+                                {tag}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                    {TOUR_REFERENCE.map((reference) => (
+                    {filteredReferences.map((reference) => (
                         <ReferenceCard key={reference.title} reference={reference}/>
                     ))}
                 </div>
@@ -33,7 +67,8 @@ const TourReferenceSection = ({title, description}: { title: string, description
 
 const ReferenceCard = ({reference}: ReferenceCardProps) => {
     return (
-        <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 p-2 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm flex flex-col h-full">
+        <div
+            className="bg-gradient-to-br from-zinc-800 to-zinc-900 p-2 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm flex flex-col h-full">
             <Image
                 src={reference.image}
                 alt={reference.title}
@@ -55,7 +90,7 @@ const ReferenceCard = ({reference}: ReferenceCardProps) => {
                     ))}
                 </div>
                 <div
-                className={"flex gap-4 mt-auto"}
+                    className={"flex gap-4 mt-auto"}
                 >
 
                     {
