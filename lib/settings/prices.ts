@@ -43,7 +43,7 @@ export const PRICES: Price[] = [
         min: 100,
         icon: IconView360Number,
         unit: "m2",
-        unit_price: 4.5,
+        unit_price: 5,
         price: (amount: number, unit_price: number) => {
             if (amount < 150) {
                 return amount * unit_price;
@@ -88,7 +88,7 @@ export const PRICES: Price[] = [
             {
                 name: "Rohdaten",
                 unit_price: 150,
-                description: "Wir stellen Ihnen die Rohdaten der 360° Bilder zur Verfügung",
+                description: "Erhalten Sie die Rohdaten der 360° Bilder für Ihre eigene Bearbeitung",
                 time_range: "Einmalig",
                 type: "bool",
             }
@@ -107,7 +107,7 @@ export const PRICES: Price[] = [
         unit: "Stück",
         unit_price: 100,
         price: (amount: number, unit_price: number) => {
-            const discount = Math.floor(amount / 10) * 0.005;
+            const discount = Math.floor(amount / 10) * 0.05;
             const effectiveUnitPrice = unit_price * (1 - discount);
             return amount * effectiveUnitPrice;
         },

@@ -13,6 +13,7 @@ import {Input} from "@/components/ui/input";
 import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui/button";
 import {Calculator} from "lucide-react";
+import {SlidingNumber} from "@/components/ui/sliding-number";
 
 const PricingPanel = () => {
     const query = useSearchParams()
@@ -75,7 +76,6 @@ const PricingPanel = () => {
     }
 
     const handleRequestQuote = () => {
-        // asseble a string with the quote details and open the email client
         const extrasList = Object.entries(extras)
             .filter(([_, value]) => value)
             .map(([name, value]) => `${name}: ${typeof value === "boolean" ? "Ja" : value} Stück`)
@@ -86,9 +86,19 @@ const PricingPanel = () => {
         Basispreis: ${calculateBasePrice().toFixed(2)} CHF
         Extras: ${extrasList || "Keine"}
         Gesamtpreis: ${calculateTotalPrice().toFixed(2)} CHF
+        Configuration Link: ${configurationLinkGenerator()}
         `;
         const mailtoLink = `mailto:sales@c-around.ch?subject=Anfrage%20zum%20Preis%20f%C3%BCr%20${selectedService.name}&body=${encodeURIComponent(quoteDetails)}`;
         window.open(mailtoLink, "_blank");
+    }
+
+    const configurationLinkGenerator = () => {
+        const queryParams = new URLSearchParams({
+            service: selectedService.key,
+            amount: amount.toString(),
+            extras: JSON.stringify(extras),
+        });
+        return `${window.location.origin}/pricing?${queryParams.toString()}`;
     }
 
     return (
@@ -121,7 +131,8 @@ const PricingPanel = () => {
                             <CardContent className="space-y-6 ">
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-center">
-                                        <Label>Anzahl {service.unit} ({amount})</Label>
+                                        <Label className={"flex items-center"}>Anzahl {service.unit} (<SlidingNumber
+                                            value={amount}/>)</Label>
                                         <span className="text-sm text-muted-foreground">
                                               {service.min} - {service.max}
                                             </span>
@@ -179,7 +190,7 @@ const PricingPanel = () => {
                                                             <Input
                                                                 type="number"
                                                                 min={0}
-                                                                className="w-20 text-right"
+                                                                className="w-20 text-right [appearance:textfield]"
                                                                 value={(extras[extra.name] as number) || 0}
                                                                 onChange={(e) =>
                                                                     handleExtraChange(extra.name, Number.parseInt(e.target.value) || 0)

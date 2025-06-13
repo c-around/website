@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import {Mail, MapPin} from 'lucide-react';
 import {SOCIALS} from "@/lib/settings/socials";
+import Image from "next/image";
 
 
 export function Footer() {
@@ -11,6 +12,13 @@ export function Footer() {
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
                     <div>
+                        <Image
+                            width={150}
+                            height={150}
+                            src="/images/logo.png"
+                            alt="C AROUND Logo"
+                            className="mb-4 h-24 w-auto"
+                        />
                         <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-sky-400 mb-4">
                             C AROUND
                         </h3>

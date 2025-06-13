@@ -20,9 +20,8 @@ export default function Page() {
             </Suspense>
         <div>
             <p className="text-center text-sm text-muted-foreground mt-8">
-                Alle Preise verstehen sich zzgl. MwSt. und sind unverbindlich. Die tatsächlichen Kosten können je
-                nach
-                Objekt und Aufwand variieren.
+                Alle Preise verstehen sich zzgl. MwSt. und sind unverbindlich. <br/>Die tatsächlichen Kosten können je
+                nach Objekt und Aufwand variieren. Keine Preisgarantie.
             </p>
         </div>
     </section>
