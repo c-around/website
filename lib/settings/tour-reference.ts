@@ -4,6 +4,7 @@ export interface TourReference {
     image: string;
     location: string;
     tags?: string[];
+    squareMeters: number;
     coordinates?: {
         latitude: number;
         longitude: number;
@@ -20,6 +21,7 @@ export const TOUR_REFERENCE = [
         image: "/images/services/tour/bbz-aula.jpg",
         location: "BBZ Aula",
         tags: ["Bildung", "Veranstaltung", "Aula"],
+        squareMeters: 130,
         coordinates: {
             latitude: 47.69945456777009,
             longitude: 8.630549710280542,
@@ -28,11 +30,12 @@ export const TOUR_REFERENCE = [
         tourLink: "https://tour.panoee.net/67e53dd02878e02586ee7206"
     },
     {
-        title: "Frühling Alterswohnheim",
+        title: "Frühling Alterswohnung",
         description: "Das Alterswohnheim Frühling bietet älteren Menschen ein Zuhause mit vielfältigen Freizeit- und Betreuungsangeboten.",
         image: "/images/services/tour/fruehling-alterswohnheim.jpg",
         location: "Frühling Alterswohnheim Beringen",
         tags: ["Altersheim", "Wohnen", "Betreuung"],
+        squareMeters: 60,
         coordinates: {
             latitude: 47.69571920962357,
             longitude:  8.572579863715404,

@@ -69,13 +69,18 @@ const ReferenceCard = ({reference}: ReferenceCardProps) => {
     return (
         <div
             className="bg-gradient-to-br from-zinc-800 to-zinc-900 p-2 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm flex flex-col h-full">
-            <Image
-                src={reference.image}
-                alt={reference.title}
-                width={500}
-                height={300}
-                className="rounded-lg object-cover h-72 w-full"
-            />
+            <div className={"relative"}>
+                <Image
+                    src={reference.image}
+                    alt={reference.title}
+                    width={500}
+                    height={300}
+                    className="rounded-lg object-cover h-72 w-full"
+                />
+                <span className=" font-bold text-white rounded-sm bg-sky-500 px-2 py-1 mb-2 absolute top-2 right-2">
+                        {reference.squareMeters}m²
+                    </span>
+            </div>
             <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-white mb-2">{reference.title}</h3>
                 <p className="text-gray-300 mb-4 flex-grow">{reference.description}</p>
@@ -83,7 +88,7 @@ const ReferenceCard = ({reference}: ReferenceCardProps) => {
                     {reference?.tags?.map((tag) => (
                         <span
                             key={tag}
-                            className="bg-sky-600/20 text-aky-400 px-2 py-1 rounded-full text-sm"
+                            className="bg-sky-600/20 text-aky-400 px-3 py-1 rounded-full text-sm"
                         >
               {tag}
             </span>
