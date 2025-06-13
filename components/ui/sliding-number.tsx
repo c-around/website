@@ -66,6 +66,7 @@ function Number({ mv, number }: { mv: MotionValue<number>; number: number }) {
       style={{ y }}
       layoutId={`${uniqueId}-${number}`}
       className='absolute inset-0 flex items-center justify-center'
+      // @ts-ignore
       transition={TRANSITION}
       ref={ref}
     >
