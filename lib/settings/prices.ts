@@ -91,6 +91,13 @@ export const PRICES: Price[] = [
                 description: "Erhalten Sie die Rohdaten der 360° Bilder für Ihre eigene Bearbeitung",
                 time_range: "Einmalig",
                 type: "bool",
+            },
+            {
+                name: "Branding",
+                unit_price: 75,
+                description: "Fügen Sie Ihr Logo und Branding in die 360° Tour ein",
+                time_range: "Einmalig",
+                type: "bool",
             }
         ]
     },
