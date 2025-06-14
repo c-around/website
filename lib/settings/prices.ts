@@ -45,7 +45,7 @@ export const PRICES: Price[] = [
         unit: "m2",
         unit_price: 5,
         price: (amount: number, unit_price: number) => {
-            if (amount < 150) {
+            if (amount < 200) {
                 return amount * unit_price;
             }
             const effectiveAmount = amount - Math.floor(amount / 15);
@@ -59,14 +59,14 @@ export const PRICES: Price[] = [
         extra: [
             {
                 name: "3D Modell",
-                unit_price: 50,
+                unit_price: 100,
                 description: "Erstellen Sie ein 3D Modell aus den 360° Bildern",
                 time_range: "Einmalig",
                 type: "bool",
             },
             {
                 name: "Punktwolken Export",
-                unit_price: 150,
+                unit_price: 200,
                 description: "Exportieren Sie die 360° Bilder als Punktwolke für weitere Bearbeitung",
                 time_range: "Einmalig",
                 type: "bool",
