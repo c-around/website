@@ -3,18 +3,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import {TOUR_REFERENCE, TourReference} from "@/lib/settings/tour-reference";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {MapPin, Scan} from "lucide-react";
-import {useSearchParams} from "next/navigation";
 
 interface ReferenceCardProps {
     reference: TourReference
 }
 
 const TourReferenceSection = ({title, description}: { title: string, description: string }) => {
-    const searchParams = useSearchParams();
-    const [searchTerm, setSearchTerm] = useState(searchParams.get("s") || "");
+    const [searchTerm, setSearchTerm] = useState("");
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(window.location.search);
+        console.log("Search Params:", searchParams);
+        const initialSearch = searchParams.get('s') || '';
+        const initialTags = searchParams.getAll('t') || [];
+        setSearchTerm(initialSearch);
+        setSelectedTags(initialTags);
+    }, []);
 
     const filteredReferences = TOUR_REFERENCE.filter(reference => {
         const matchesSearch = reference.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
