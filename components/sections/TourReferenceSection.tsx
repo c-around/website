@@ -4,13 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import {TOUR_REFERENCE, TourReference} from "@/lib/settings/tour-reference";
 import {useState} from "react";
+import {MapPin, Scan} from "lucide-react";
+import {useSearchParams} from "next/navigation";
 
 interface ReferenceCardProps {
     reference: TourReference
 }
 
 const TourReferenceSection = ({title, description}: { title: string, description: string }) => {
-    const [searchTerm, setSearchTerm] = useState("");
+    const searchParams = useSearchParams();
+    const [searchTerm, setSearchTerm] = useState(searchParams.get("s") || "");
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
     const filteredReferences = TOUR_REFERENCE.filter(reference => {
@@ -69,29 +72,44 @@ const ReferenceCard = ({reference}: ReferenceCardProps) => {
     return (
         <div
             className="bg-gradient-to-br from-zinc-800 to-zinc-900 p-2 rounded-xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 transition-all duration-300 border border-zinc-700/50 backdrop-blur-sm flex flex-col h-full">
-            <div className={"relative"}>
+            <div className={"grid rounded-lg overflow-hidden"}>
                 <Image
                     src={reference.image}
                     alt={reference.title}
                     width={500}
                     height={300}
-                    className="rounded-lg object-cover h-72 w-full"
+                    className="object-cover h-72 w-full col-start-1 row-start-1"
                 />
-                <span className=" font-bold text-white rounded-sm bg-sky-500 px-2 py-1 mb-2 absolute top-2 right-2">
-                        {reference.squareMeters}m²
-                    </span>
+                <div
+                    className={'col-start-1 row-start-1 w-full h-full flex flex-col justify-end items-start p-4 bg-gradient-to-t from-black/80 to-transparent'}>
+                    <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-md">{reference.title}</h3>
+                    <div className={"flex items-center gap-3"}>
+                            <span
+                                className="font-semibold text-white bg-sky-500 rounded-md px-3 py-1.5 mb-2 flex items-center gap-1.5 shadow-lg">
+                                <Scan className="w-4 h-4"/>
+                                {reference.squareMeters}m²
+                            </span>
+                        <Link
+                            target="_blank"
+                            href={`https://maps.google.com/?q=${reference.location.latitude},${reference.location.longitude}`}
+                            className="font-semibold text-white bg-zinc-700/70 hover:bg-zinc-700/90 rounded-md px-3 py-1.5 mb-2 flex items-center gap-1.5 shadow-lg transition-colors">
+                            <MapPin className="w-4 h-4"/>
+                            {reference.location.name}
+                        </Link>
+                    </div>
+                </div>
             </div>
             <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-white mb-2">{reference.title}</h3>
+
                 <p className="text-gray-300 mb-4 flex-grow">{reference.description}</p>
-                <div className="flex items-center space-x-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4">
                     {reference?.tags?.map((tag) => (
                         <span
                             key={tag}
-                            className="bg-sky-600/20 text-aky-400 px-3 py-1 rounded-full text-sm"
+                            className="bg-zinc-800 text-sky-300 border border-sky-300/30 px-3 py-1 rounded-full text-xs font-medium"
                         >
-              {tag}
-            </span>
+                            {tag}
+                        </span>
                     ))}
                 </div>
                 <div
