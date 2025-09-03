@@ -24,11 +24,11 @@ export default function RootLayout({
     <html lang="de" className={"dark"}>
       <body className={`${inter.className} min-h-screen`}>
         <OpenPanelComponent
-          clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID as string}
+          clientId={"9066e930-bbd7-4ba6-8d15-15d9880bd567"}
           trackScreenViews={true}
           trackOutgoingLinks={true}
           trackAttributes={true}
-          apiUrl={process.env.NEXT_PUBLIC_OPENPANEL_API_URL as string}
+          apiUrl={"https://atrack.heggli.dev"}
         />
         <Header />
         <div style={{ height: `${BANNERS.length * 36}px` }} />
