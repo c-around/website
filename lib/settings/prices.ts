@@ -1,9 +1,29 @@
 import {IconDrone, IconPhoto, IconView360Number, TablerIcon} from "@tabler/icons-react";
 import {LucideIcon} from "lucide-react";
 
-export const GLOBAL_DISCOUNT = {
-    percentage: 0.3,
-    description: "Neu-Kunden Rabatt",
+interface Code {
+    percentage: number;
+    description: string;
+    valid_until: string;
+    valid_from: string;
+    type: "percentage" | "fixed";
+}
+
+export const CODES: Record<string, Code> = {
+    HERBSRMESSE: {
+        percentage: 0.2,
+        description: "Hernstemessen Rabatt",
+        valid_until: "2025-10-31",
+        valid_from: "2025-9-25",
+        type: "percentage"
+    },
+    NEUKUNDE: {
+        percentage: 0.15,
+        description: "Neukunden Rabatt",
+        valid_until: "2025-10-31",
+        valid_from: "2025-08-01",
+        type: "percentage"
+    }
 }
 
 
