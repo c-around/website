@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { Footer } from "@/components/navigation/Footer";
-import React from "react";
+import React, { Suspense } from "react";
 import Header from "@/components/header";
 import { BANNERS } from "@/lib/settings/banners";
 import { OpenPanelComponent } from "@openpanel/nextjs";
@@ -24,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="de" className={"dark"}>
       <body className={`${inter.className} min-h-screen`}>
-        <DiscountCodeHandler />
+        <Suspense fallback={<div>Loading...</div>}>
+          <DiscountCodeHandler />
+        </Suspense>
         <OpenPanelComponent
           clientId={"9066e930-bbd7-4ba6-8d15-15d9880bd567"}
           trackScreenViews={true}
