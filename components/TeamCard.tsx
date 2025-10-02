@@ -26,7 +26,7 @@ export function TeamCard({name, role, image, socials}: {
             </div>
             <h3 className="text-xl font-bold text-zinc-200 mt-4">{name}</h3>
             <p className="text-zinc-300">{role}</p>
-            <div className="flex gap-4 mt-4 ">
+            <div className="flex gap-1 mt-4 ">
                 {socials.map(({Icon, url}, index: number) => (
                     <Link
                         key={index}
