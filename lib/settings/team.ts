@@ -67,7 +67,7 @@ export const TEAM = [
     ],
   },
   {
-    name: "Natherat Kamluea",
+    name: "Naterat Khamluea",
     role: "CTO",
     image: "/images/team/natherat-kamluea.png",
     socials: [
@@ -77,7 +77,7 @@ export const TEAM = [
       },
       {
         Icon: Mail,
-        url: "mailto:natherat.kamluea@c-around.ch",
+        url: "mailto:naterat.khamluea@c-around.ch",
       },
     ],
   },
