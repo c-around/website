@@ -1,8 +1,7 @@
 "use client"
 
-import {useSearchParams} from "next/navigation";
-import {useState} from "react";
-import {GLOBAL_DISCOUNT, PRICES} from "@/lib/settings/prices";
+import {useState, useEffect} from "react";
+import {CODES, PRICES} from "@/lib/settings/prices";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Label} from "@/components/ui/label";
@@ -15,14 +14,83 @@ import {Button} from "@/components/ui/button";
 import {Calculator} from "lucide-react";
 import {SlidingNumber} from "@/components/ui/sliding-number";
 
+function isCodeValid(code: string) {
+    if (!code) return false;
+    const codeObj = CODES[code.toUpperCase()];
+    if (!codeObj) return false;
+    if (!codeObj.valid_until) return true;
+    const now = new Date();
+    const validUntil = new Date(codeObj.valid_until);
+    return now <= validUntil;
+}
+
+function getCodeObject(code: string) {
+    if (!code) return null;
+    const codeObj = CODES[code.toUpperCase()];
+    if (!codeObj) return null;
+    if (!isCodeValid(code)) return null;
+    return codeObj;
+}
+
 const PricingPanel = () => {
-    const query = useSearchParams()
-    const [selectedService, setSelectedService] = useState(
-        PRICES.find((p) => p.key === query.get("service")) || PRICES[0]
-    )
+    const [selectedService, setSelectedService] = useState(PRICES[0])
     const [amount, setAmount] = useState(selectedService.min)
     const [extras, setExtras] = useState<Record<string, boolean | number>>({})
 
+    // Discount code state
+    const [discountCode, setDiscountCode] = useState<string>("");
+    const [discountCodeInput, setDiscountCodeInput] = useState<string>("");
+    const [discountCodeStatus, setDiscountCodeStatus] = useState<"valid" | "invalid" | "expired" | "none">("none");
+
+    // Load code and service from localStorage on mount
+    useEffect(() => {
+        const storedCode = typeof window !== "undefined" ? localStorage.getItem("discount_code") : null;
+        const storedService = typeof window !== "undefined" ? localStorage.getItem("selected_service") : null;
+        
+        if (storedCode) {
+            setDiscountCode(storedCode);
+            setDiscountCodeInput(storedCode);
+        }
+        
+        if (storedService) {
+            const service = PRICES.find((p) => p.key === storedService);
+            if (service) {
+                setSelectedService(service);
+                setAmount(service.min);
+            }
+        }
+    }, []);
+
+    // Validate code when changed
+    useEffect(() => {
+        if (!discountCodeInput) {
+            setDiscountCodeStatus("none");
+            return;
+        }
+        const codeObj = CODES[discountCodeInput.toUpperCase()];
+        if (!codeObj) {
+            setDiscountCodeStatus("invalid");
+        } else {
+            const now = new Date();
+            const validUntil = new Date(codeObj.valid_until);
+            const validFrom = new Date(codeObj.valid_from);
+            if (now > validUntil) {
+                setDiscountCodeStatus("expired");
+            } else if (now < validFrom) {
+                setDiscountCodeStatus("invalid");   
+            } else {
+                setDiscountCodeStatus("valid");
+            }
+        }
+    }, [discountCodeInput]);
+
+    // When code is valid, set as active and save to localStorage
+    useEffect(() => {
+        if (discountCodeStatus === "valid") {
+            setDiscountCode(discountCodeInput);
+            localStorage.setItem("discount_code", discountCodeInput);
+        }
+    }, [discountCodeStatus, discountCodeInput]);
 
     const handleServiceChange = (value: string) => {
         const service = PRICES.find((p) => p.name === value) || PRICES[0]
@@ -67,12 +135,27 @@ const PricingPanel = () => {
         }, 0) || 0
     }
 
+    // Calculate discount from code
+    const getDiscountAmount = () => {
+        const codeObj = getCodeObject(discountCode);
+        if (!codeObj) return 0;
+        const basePrice = calculateBasePrice();
+        const extrasPrice = calculateExtrasPrice();
+        const totalBeforeDiscount = basePrice + extrasPrice;
+        if (codeObj.type === "percentage") {
+            return totalBeforeDiscount * codeObj.percentage;
+        } else if (codeObj.type === "fixed") {
+            return codeObj.percentage; // for fixed, treat as CHF amount
+        }
+        return 0;
+    }
+
     const calculateTotalPrice = () => {
         const basePrice = calculateBasePrice()
         const extrasPrice = calculateExtrasPrice()
         const totalBeforeDiscount = basePrice + extrasPrice
-        const discountAmount = totalBeforeDiscount * GLOBAL_DISCOUNT.percentage
-        return totalBeforeDiscount - discountAmount
+        const discountAmount = getDiscountAmount();
+        return Math.max(0, totalBeforeDiscount - discountAmount);
     }
 
     const handleRequestQuote = () => {
@@ -80,11 +163,16 @@ const PricingPanel = () => {
             .filter(([_, value]) => value)
             .map(([name, value]) => `${name}: ${typeof value === "boolean" ? "Ja" : value} Stück`)
             .join(", ");
+        const codeObj = getCodeObject(discountCode);
+        const discountText = codeObj
+            ? `Rabatt (${discountCode.toUpperCase()}): -${getDiscountAmount().toFixed(2)} CHF`
+            : "";
         const quoteDetails = `
         Service: ${selectedService.name}
         Anzahl: ${amount} ${selectedService.unit}
         Basispreis: ${calculateBasePrice().toFixed(2)} CHF
         Extras: ${extrasList || "Keine"}
+        ${discountText}
         Gesamtpreis: ${calculateTotalPrice().toFixed(2)} CHF
         Configuration Link: ${configurationLinkGenerator()}
         `;
@@ -97,12 +185,12 @@ const PricingPanel = () => {
             service: selectedService.key,
             amount: amount.toString(),
             extras: JSON.stringify(extras),
+            ...(discountCode ? { code: discountCode } : {}),
         });
         return `${window.location.origin}/pricing?${queryParams.toString()}`;
     }
 
     return (
-
         <div className="max-w-4xl mx-auto">
             <Tabs defaultValue={PRICES[0].name} onValueChange={handleServiceChange} className="w-full">
                 <TabsList className="grid grid-cols-1 lg:grid-cols-[repeat(auto-fit,minmax(200px,1fr))]
@@ -243,17 +331,17 @@ const PricingPanel = () => {
                                                   {calculateExtrasPrice().toFixed(2)} CHF
                                                 </span>
                                     </div>
-                                    {
-                                        GLOBAL_DISCOUNT.percentage > 0 && (
-                                            <div className="flex justify-between text-sm text-red-400">
-                                                <span>{GLOBAL_DISCOUNT.description}:</span>
-                                                <span>
-                                                  -{((calculateBasePrice() + calculateExtrasPrice()) * GLOBAL_DISCOUNT.percentage).toFixed(2)}{" "}
-                                                    CHF
-                                                </span>
-                                            </div>
-                                        )
-                                    }
+                                    {/* Rabattcode Anzeige */}
+                                    {discountCode && getCodeObject(discountCode) && (
+                                        <div className="flex justify-between text-sm text-red-400">
+                                            <span>
+                                                Rabatt ({discountCode.toUpperCase()}):
+                                            </span>
+                                            <span>
+                                                -{getDiscountAmount().toFixed(2)} CHF
+                                            </span>
+                                        </div>
+                                    )}
                                     <div className="flex justify-between font-bold text-lg pt-2 border-t">
                                         <span>Gesamtpreis:</span>
                                         <span className="text-sky-300">
@@ -269,22 +357,46 @@ const PricingPanel = () => {
                                                 <span className="text-green-400 font-bold">
                                                       {(
                                                           calculateProgressionDiscount() +
-                                                          (calculateBasePrice() + calculateExtrasPrice()) * GLOBAL_DISCOUNT.percentage
+                                                          getDiscountAmount()
                                                       ).toFixed(2)}{" "}
                                                     CHF
                                                     </span>
                                             </div>
                                             <p className="text-xs text-green-300 mt-1">
                                                 Durch Mengenrabatt
-                                                {calculateProgressionDiscount() > 0 ? ` und ${GLOBAL_DISCOUNT.description}` : ""}
+                                                {getCodeObject(discountCode) ? ` und Rabatt (${discountCode.toUpperCase()})` : ""}
                                             </p>
                                         </div>
                                     )}
                                 </div>
 
+                                {/* Rabattcode Eingabe unten im Panel */}
+                                <div className="w-full mt-4">
+                                    <Label htmlFor="discount-code" className="mb-1 block">Rabattcode</Label>
+                                    <div className="flex gap-2 items-center">
+                                        <Input
+                                            id="discount-code"
+                                            type="text"
+                                            placeholder="Rabattcode eingeben"
+                                            value={discountCodeInput}
+                                            onChange={e => setDiscountCodeInput(e.target.value)}
+                                            className="w-40"
+                                        />
+                                        {discountCodeStatus === "valid" && (
+                                            <span className="text-green-400 text-xs">Gültig</span>
+                                        )}
+                                        {discountCodeStatus === "invalid" && (
+                                            <span className="text-red-400 text-xs">Ungültig</span>
+                                        )}
+                                        {discountCodeStatus === "expired" && (
+                                            <span className="text-yellow-400 text-xs">Abgelaufen</span>
+                                        )}
+                                    </div>
+                                </div>
+
                                 <Button
                                     onClick={handleRequestQuote}
-                                    className="w-full bg-gradient-to-r from-sky-400 to-sky-600 hover:from-sky-500 hover:to-sky-700">
+                                    className="w-full bg-gradient-to-r from-sky-400 to-sky-600 hover:from-sky-500 hover:to-sky-700 mt-4">
                                     <Calculator className="mr-2 h-4 w-4"/>
                                     Angebot anfordern
                                 </Button>

@@ -1,17 +1,13 @@
-export interface QuestionAndAnswer {
+export interface QNA {
     question: string;
     answer: string;
 }
 
-export const QUESTIONS_AND_ANSWERS: QuestionAndAnswer[] = [
+export const QUESTIONS_AND_ANSWERS: QNA[] = [
     {
         question: "Ist es möglich, später einzelne Bilder auszutauschen?",
         answer: `Ja, Einzelbilder können jederzeit ausgetauscht werden.`,
     },
-    // {
-    //     question: "Kann ich meine Touren auch selber erstellen?",
-    //     answer: `Ja, das ist möglich. Wir stellen Ihnen eine Anleitung zur Verfügung, wie Sie Ihre Touren selber erstellen können.`,
-    // },
     {
         question: "Muss ich den Hostinganbieter wechseln?",
         answer: "Nein, Sie können es aber auch über uns hosten lassen.",
@@ -24,5 +20,4 @@ export const QUESTIONS_AND_ANSWERS: QuestionAndAnswer[] = [
         question: "Wie lange dauert es, bis die Touren online ist?",
         answer: "Das kann je nach Projekt variieren, genauere Informationen und unsgefähre Zeitangaben finden Sie in unseren [Zeitplänen](/timelines). In der Regel dauert es aber zwischen 1-2 Wochen, bis die Touren online sind.",
     },
-
 ]

@@ -6,7 +6,7 @@ import React from "react";
 const Banners = () => {
     return <>
         {
-            BANNERS.map(
+            BANNERS.filter(banner => (!banner.until ? true : new Date(banner.until) > new Date()) && (!banner.from ? true : new Date(banner.from) < new Date())).map(
                 (banner, index) => (
                     <div key={index} className="bg-gray-900/50 backdrop-blur-sm border-b border-gray-800">
                         <div className={cn("py-2 px-4 text-center text-sm", {
@@ -17,6 +17,7 @@ const Banners = () => {
                             "bg-purple-500/10 text-purple-200": banner.color === "purple",
                             "bg-pink-500/10 text-pink-200": banner.color === "pink",
                             "bg-gray-500/10 text-gray-200": banner.color === "gray",
+                            "bg-orange-500/10 text-orange-200": banner.color === "orange",
                         })}>
                             {banner?.text} {banner?.link && banner?.link.text &&
                             <Link href={banner?.link.url} className="underline">{banner?.link.text}</Link>}
