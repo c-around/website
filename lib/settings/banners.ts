@@ -23,7 +23,7 @@ export const BANNERS: Banner[] = [
     color: "green" as const,
     link: {
       text: "🚀 Jetzt Anfrage stellen",
-      url: "/pricing?code=NEUKUNDE",
+      url: "/pricing?code=NEUJAHR",
     },
     until: "2026-03-31",
   },
