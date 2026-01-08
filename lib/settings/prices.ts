@@ -22,11 +22,11 @@ export const CODES: Record<string, Code> = {
     valid_from: "2025-9-25",
     type: "percentage",
   },
-  NEUKUNDE: {
+  NEUJAHR: {
     percentage: 0.15,
-    description: "Neukunden Rabatt",
-    valid_until: "2025-12-31",
-    valid_from: "2025-08-01",
+    description: "Neujahr Rabatt",
+    valid_until: "2026-03-31",
+    valid_from: "2026-01-01",
     type: "percentage",
   },
 };

@@ -19,7 +19,7 @@ export interface Banner {
 
 export const BANNERS: Banner[] = [
   {
-    text: "🎉 Jetzt 15% Rabatt auf alle Dienstleistungen für Neukunden! 🤑",
+    text: "🎉 Neujahr Rabatt: Jetzt 15% Rabatt auf alle Dienstleistungen! 🤑",
     color: "green" as const,
     link: {
       text: "🚀 Jetzt Anfrage stellen",
