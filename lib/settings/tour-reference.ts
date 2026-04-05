@@ -14,7 +14,7 @@ export interface TourReference {
 }
 
 
-export const TOUR_REFERENCE = [
+export const TOUR_REFERENCE: TourReference[] = [
     {
         title: "BBZ Aula",
         description: "Das BBZ ist ein Ort des Lernens und der Begegnung. Hier finden Sie eine Vielzahl von Bildungsangeboten und Veranstaltungen.",
@@ -42,5 +42,18 @@ export const TOUR_REFERENCE = [
         },
         website: "https://www.frueling.ch/index.php",
         tourLink: "https://tour.panoee.net/684ada2bf2b32c5e880cd652"
+    },
+    {
+        title: "Fronhofgass 3",
+        description: "Eine schöne Altbauwohnung in Stein am Rhein in der Altstadt und in sichtreichweite des Rheins.",
+        image: "/images/services/tour/fronhofgass-3.png",
+        tags: ["Wohnen", "Altbau"],
+        squareMeters: 130,
+        location: {
+            name: "Stein am Rhein, Schweiz",
+            latitude: 47.66098808545682,
+            longitude: 8.858079668984262,
+        },
+        tourLink: "https://fronhofgass-3.c-around.ch/"
     }
 ]
