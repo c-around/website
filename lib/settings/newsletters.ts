@@ -10,4 +10,9 @@ export const NEWSLETTERS: Newsletter[] = [
     date: new Date(2025, 9, 15),
     pdfFile: "/newsletters/herbstmesse-2025.pdf",
   },
+  {
+    name: "Geschäftsbericht",
+    date: new Date(2026, 3, 30),
+    pdfFile: "/newsletters/geschaeftsbericht.pd f",
+  },
 ];
