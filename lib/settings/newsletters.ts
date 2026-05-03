@@ -13,6 +13,6 @@ export const NEWSLETTERS: Newsletter[] = [
   {
     name: "Geschäftsbericht",
     date: new Date(2026, 3, 30),
-    pdfFile: "/newsletters/geschaeftsbericht.pd f",
+    pdfFile: "/newsletters/geschaeftsbericht.pdf",
   },
 ];
